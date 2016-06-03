@@ -396,7 +396,7 @@ $$
 Всякий многочлен $P\left(z\right) = a_nz^n + a_{n-1}z^{n-1} + \ldots \hm{+} a_1z + a_0$ степени $n$, где $n \geqslant 1$, $a_n \neq 0$, и $a_0,\ldots,a_n \in \mathbb{C}$ имеет корень.
 \end{Theorem}
 
-\section{Овеществление комплексного векторного пространства; свзязь между соответствующими размерностями в конечномерном случае.}
+\section{Овеществление комплексного векторного пространства; связь между соответствующими размерностями в конечномерном случае.}
 
 Пусть $V$ --- векторное пространство над $\mathbb{C}$.
 \begin{Def}
@@ -508,7 +508,7 @@ z \in W\\
 -x-y \in U\cap W\\
 \Rightarrow \exists \lambda_1,\ldots, \lambda_p \in F \colon z = \lambda_1a_1+\ldots+\lambda_pa_p 
 \end{gather*}
-Тогда $\lambda_1a_1 + \ldots + \lambda_pa_p - \gamma_1c_1 - \ldots - \gamma_{m-p}c_{m-p} = 0$. Но $a \cup c$ --- базис $W$. Следовательно, $\lambda_1 \hm{=} \ldots = \lambda_p = \gamma_1 = \ldots = \gamma_{m-p} = 0$. Но тогда $0 = x+y = \alpha_1a_1 + \ldots + \alpha_pa_p + \beta_1b_1 + \ldots + \beta_{k-p}b_{k-p}$. Но $a\cup b$ --- базис $U+W \Rightarrow \alpha_1 = \ldots = \alpha_p = \beta_1 = \ldots = \beta_{k-p} = 0$. Итого, все коэффициенты равны нулю и линейная независимость тем самым доказана. То есть $a \cup b \cup c$ --- базис $U+W$. 
+Тогда $\lambda_1a_1 + \ldots + \lambda_pa_p - \gamma_1c_1 - \ldots - \gamma_{m-p}c_{m-p} = 0$. Но $a \cup c$ --- базис $W$. Следовательно, $\lambda_1 \hm{=} \ldots = \lambda_p = \gamma_1 = \ldots = \gamma_{m-p} = 0$. Но тогда $0 = x+y = \alpha_1a_1 + \ldots + \alpha_pa_p + \beta_1b_1 + \ldots + \beta_{k-p}b_{k-p}$. Но $a\cup b$ --- базис $U \Rightarrow \alpha_1 = \ldots = \alpha_p = \beta_1 = \ldots = \beta_{k-p} = 0$. Итого, все коэффициенты равны нулю и линейная независимость тем самым доказана. То есть $a \cup b \cup c$ --- базис $U+W$. 
 \begin{gather*}
     \dim \left(U+W\right) = |a\cup b \cup c| = |a| + |b| + |c| = p + k-p + m-p = k + m -p =\\
     =\dim U + \dim W - \dim\left(U\cap W\right)
@@ -1241,7 +1241,7 @@ x_n
 \begin{proof}[Координатный способ]
     Зафиксируем базис $\mathbb{e} = (e_1, \ldots, e_n)$ в $V$ и базис $\mathbb{f} = (f_1, \ldots, f_m)$ в $W$. Пусть $A$ --- матрица $\phi$ в базисе $\mathbb{f}$. Тогда $v = x_1e_1 + \ldots + x_ne_n$, $\phi(v) = y_1f_1 + \ldots + y_mf_m$. Получим, что $\begin{pmatrix} y_1\\ \vdots \\ y_m \end{pmatrix} = A \begin{pmatrix} x_1\\ \vdots \\ x_n\end{pmatrix}$. 
     
-    $\Ker \phi$ состоит из векторов, координаты которых удовлетворяют СЛУ $ A \begin{pmatrix} x_1\\ \vdots \\ x_n\end{pmatrix} = 0$. Ранее в курсе мы уже доказали, что размерность пространства решений равна $n - \rk A$, то есть $\dim \Im \phi = n - \rk A = \dim V - \dim \Ker \phi$.
+    $\Ker \phi$ состоит из векторов, координаты которых удовлетворяют СЛУ $ A \begin{pmatrix} x_1\\ \vdots \\ x_n\end{pmatrix} = 0$. Ранее в курсе мы уже доказали, что размерность пространства решений равна $n - \rk A$, то есть $\dim \Ker \phi = n - \rk A = \dim V - \dim \Im \phi$.
 \end{proof}
 
 \section{Линейный оператор. Матрица линейного оператора. Формула преобразования координат вектора при действии линейного оператора. Формула изменения матрицы линейного оператора при переходе к другому базису.}
@@ -2910,7 +2910,7 @@ $\vol P\vector{a}^2 = \det G\vector{a}$.
 \det G(a_1, \ldots, a_{n-1}) \cdot |\ort_{\langle a_1, \ldots, a_{n-1} \rangle}a_n|^2 = \\
 = \begin{cases}
 	0 = \det G\vector{a}, & \text{если $a_1, \ldots a_{n-1}$ линейно зависимы} \\
-	\det G(a_1, \ldots, a_n)\frac{\det G(a_1, \ldots, a_n)}{\det G(a_1, \ldots, a_{n-1})} = \det G\vector{a}, & \text{если $a_1, \ldots, a_{n-1}$ линейно независимы}
+	\det G(a_1, \ldots, a_{n-1})\frac{\det G(a_1, \ldots, a_n)}{\det G(a_1, \ldots, a_{n-1})} = \det G\vector{a}, & \text{если $a_1, \ldots, a_{n-1}$ линейно независимы}
   \end{cases}
 \end{gather*}
 \end{proof}
@@ -3224,7 +3224,7 @@ $$
 \end{Examples}
 
 
-\section{Классификация отогональных линейных операторов в одномерном и двумерном евклидовых пространствах.}
+\section{Классификация ортогональных линейных операторов в одномерном и двумерном евклидовых пространствах.}
 
 Пусть $\E$ --- евклидово пространство, $\e$ --- его базис, $\phi$ --- его ортогональный линейный оператор, $A$ --- матрица $\phi$ в базисе $\e$.
 
