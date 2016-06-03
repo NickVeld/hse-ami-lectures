@@ -1949,8 +1949,6 @@ V_\lambda(\phi) = \ker\phi_\lambda \subset \ker\phi^2_\lambda \subset \ldots \su
 \end{Suggestion}
 
 \begin{proof}
-	Положим для краткости $\phi_\l = \phi - \l\id$.
-		
 	Пусть $k_i = \dim \ker \phi^i_\l$, для $i = 1, \ldots, m$. Пусть также $k_0 = 0$.
 	
 	Выберем базис $\mathbb{e} = (e_1, \ldots, e_{k_m})$ в $V^{\lambda}(\phi)$ так, чтобы
@@ -2034,7 +2032,7 @@ V_\lambda(\phi) = \ker\phi_\lambda \subset \ker\phi^2_\lambda \subset \ldots \su
 \end{proof}
 
 \begin{Consequence}
-	$V^{\lambda}(\phi) = \ker\phi^s_\lambda$, где $s$ --- кратность $\lambda$ как корня многочлена $\chi_\phi(t)$.
+	$V^{\lambda}(\phi) = \ker(\phi - \l\id)^s$, где $s$ --- кратность $\lambda$ как корня многочлена $\chi_\phi(t)$.
 \end{Consequence}
 
 \section{Сумма корневых подпространств, отвечающих попарно различным собственным значениям. Признак разложимости пространства в прямую сумму корневых подпространств линейного оператора. Формулировка Теоремы о Жордановой нормальной форме линейного оператора.}
@@ -2044,6 +2042,8 @@ V_\lambda(\phi) = \ker\phi_\lambda \subset \ker\phi^2_\lambda \subset \ldots \su
 \end{Suggestion}
 
 \begin{proof}
+	Положим для краткости, что $\phi - \lambda \id = \phi_{\lambda}$.
+	
 	Докажем индукцией по $k$.
 	
 	База при $k = 1$ --- ясно.
@@ -2118,18 +2118,8 @@ J_{\mu_1}^{n_1} & 0 & \ldots & 0 \\
 
 \section{Линейная функция на векторном пространстве. Пространство линейных функций, его размерность. Двойственный (сопряжённый) базис.}
 
-Рассмотрим функцию $f \colon \R^n \rightarrow \R$.
-
-Пусть $x_0 \in \R^n$ и $y = \begin{pmatrix}y_1 \\ \vdots \\ y_n\end{pmatrix} \in\R^n$ --- приращение, то есть $x = x_0 + y$. Если функция достаточно хорошая, то есть дважды дифференцируема в точке $x$, то
-\begin{gather*}
-f(x) = f(x_0) + a_1y_1 + \ldots + a_ny_n + b_{11}y_1^2 + \ldots + b_{ij}y_iy_j +\ldots + b_{nn}y_n^2 + \overline{o}(|y|^2).
-\end{gather*}
-
-Сумма $a_1y_1 + \ldots + a_ny_n$ называется линейной формой, а сумма $b_{11}y_1^2 + \ldots \hm+ b_{ij}y_iy_j + \ldots + b_{nn}y_n^2$~--- квадратичной формой.
-
-Теперь дадим строгое определение:
 \begin{Def}
-Линейной функцией (формой, функционалом) на векторном пространстве $V$ называется всякое линейное отображение $\sigma \colon V \rightarrow F$, где $F$ --- одномерное векторное пространство. 
+Линейной функцией (формой, функционалом) на векторном пространстве $V$ называется всякое линейное отображение $\sigma \colon V \rightarrow F$.
 
 Обозначение: $V^* = \Hom(V, F)$.
 \end{Def}
@@ -2521,15 +2511,14 @@ $$
 \end{Theorem}
 \begin{proof}
 	Индукция по $n$. База для $n = 1$ очевидна. 
-	\par Теперь пусть всё доказано для всех $k<n$. Докажем для $n$. По предположению индукции, существует единственный базис $(e_1', e_2', \ldots, e_n')$ с требуемыми свойствами.
+	\par Теперь пусть всё доказано для всех $k<n$. Докажем для $n$. По предположению индукции, существует единственный базис $(e_1', e_2', \ldots, e_{n-1}')$ с требуемыми свойствами.
 	
 	Наблюдение: $\langle e_i, \ldots, e_n\rangle = \langle e_i', \ldots, e_n'\rangle$.
 	
 	Ищем $e_n'$ в виде $e_n' = e_n + \lambda_1 e_1' + \ldots + \lambda_{n-1}e_{n-1}'$. Тогда для всех $i$:
 	\[
- \beta(e_n', e_i') = \beta(e_n, e_i') + \sum\limits^{n-1}_{j = 1} \lambda_j\beta (e_j', e_i')
+ 0 = \beta(e_n', e_i') = \beta(e_n, e_i') + \sum\limits^{n-1}_{j = 1} \lambda_j\beta (e_j', e_i')
 	\]
-	Чтобы выполнялись требуемые условия, необходимо, чтобы эта сумма равнялась нулю.
 	
 	Заметим,что последнее слагаемое обращается в нуль при $i \neq j$ по свойству выбранного базиса. Тогда остается только следующее:
 	\[
@@ -2971,7 +2960,7 @@ $$
 Изоморфизм евклидовых пространств $\E$ и $\E'$  --- это биективное отображение $\phi: \E \rightarrow \E'$ такое, что
 \begin{enumerate}
 \item $\phi$ --- изоморфизм векторных пространств.
-\item $(\phi(x), \phi(y))' = (x, y)$ для любых $x \in \E$ и $y \in \E'$. Здесь через $()'$ обозначается скалярное произведение в $\E'$.
+\item $(\phi(x), \phi(y))' = (x, y)$ для любых $x, y \in \E$. Здесь через $()'$ обозначается скалярное произведение в $\E'$.
 \end{enumerate}
 \end{Def}
 
@@ -2996,7 +2985,7 @@ $$
 $$
 Теперь рассмотрим векторы $x = \sum_{_i = 1}^{n}x_ie_i$ и $y = \sum_{j = 1}^{n}y_je_j$ и проверим второй пункт определения изоморфизма евклидовых пространств. Будем пользоваться билинейностью скалярного произведения.
 \begin{gather*}
-(\phi(x), \phi(y))' = \left(\phi\left(\sum_{i = 1}^{n}x_ie_i\right), \phi\left(\sum_{j = 1}^{j = n}y_je_j\right)\right)' = \left(\sum_{i = 1}^{n}x_i\phi(e_i), \sum_{j = 1}^{n}y_j\phi(e_j)\right)' = \\
+(\phi(x), \phi(y))' = \left(\phi\left(\sum_{i = 1}^{n}x_ie_i\right), \phi\left(\sum_{j = 1}^{n}y_je_j\right)\right)' = \left(\sum_{i = 1}^{n}x_i\phi(e_i), \sum_{j = 1}^{n}y_j\phi(e_j)\right)' = \\
 = \sum_{i = 1}^{n}\sum_{j = 1}^{n}x_iy_j\phi(e_i, e_j)' = \sum_{i = 1}^{n}\sum_{j = 1}^{n}x_iy_j(e_i, e_j) = (x, y)
 \end{gather*}
 \end{proof}
@@ -3241,10 +3230,6 @@ $$
 \end{itemize}
 \end{proof}
 
-\begin{Examples}
-Тут надо придумать, как записывать.
-\end{Examples}
-
 
 \section{Классификация ортогональных линейных операторов в одномерном и двумерном евклидовых пространствах.}
 
@@ -3255,7 +3240,7 @@ $$
 Если $\dim \E = 2$, то возможны два случая:
 \begin{enumerate}
 \item $\phi$ это поворот пространства на угол $\alpha$, $A = \begin{pmatrix}
-\cos\alpha & \sin\alpha \\
+\cos\alpha & -\sin\alpha \\
 \sin\alpha & \cos\alpha
 \end{pmatrix}$;
 \item $\phi$ это отражение относительно некоторой прямой, $A = \begin{pmatrix}
@@ -3280,7 +3265,7 @@ $$
 \end{proof}
 
 Пусть $\Pi(\alpha) = \begin{pmatrix}
-\cos\alpha & \sin\alpha \\
+\cos\alpha & -\sin\alpha \\
 \sin\alpha & \cos\alpha
 \end{pmatrix}$.
 
@@ -3300,7 +3285,7 @@ $$
 \end{pmatrix},
 $$
 где $\Pi(\alpha_i) =  \begin{pmatrix}
-\cos\alpha_i & \sin\alpha_i \\
+\cos\alpha_i & -\sin\alpha_i \\
 \sin\alpha_i & \cos\alpha_i
 \end{pmatrix}$ --- матрица поворота на угол $\alpha_i$. Этот вид называется каноническим.
 \end{Theorem}
