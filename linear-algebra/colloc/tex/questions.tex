@@ -1130,7 +1130,7 @@ c_{pr} = \sum_{q = 1}^{m}a_{pq}b_{qr} \\
         x_n
     \end{pmatrix}.
     $$
-   \par  $A^{\left(j\right)}$ --- столбец координат в базисе $\mathbb{f}$, $\alpha_1, \ldots, \alpha_n \in F$.
+   \par  $A^{\left(j\right)}$ --- столбец координат $e_j$ в базисе $\mathbb{f}$, $\alpha_1, \ldots, \alpha_n \in F$.
    \[
         \alpha_1 \phi(e_1) + \ldots + \alpha_n \phi(e_n) = 0 \Leftrightarrow \alpha_1 A^{\left(1\right)} + \ldots + \alpha_n A^{\left(n\right)} = 0
    \]
@@ -1216,7 +1216,7 @@ x_n
 \section{Теорема о связи размерностей ядра и образа линейного отображения.}
 
 \begin{Theorem}
-    $\dim \Im \phi = \dim \phi - \dim \Ker \phi$.
+    $\phi:V \rightarrow W, \dim \Im \phi = \dim V - \dim \Ker \phi$.
 \end{Theorem}
 
 Существует 2 способа доказательства. Рассмотрим оба.
@@ -1291,8 +1291,8 @@ $$
 \begin{proof}
     \begin{gather}
         (e_1', \ldots, e_n') = (e_1, \ldots, e_n)C  \\
-        e_j' = \sum\limits_{i=1}^{n} c_{ij}e_j \\
-        \phi(e_j') = \phi\left(\sum\limits_{i=1}^{n} c_{ij}e_j\right) = \sum\limits_{i=1}^nc_{ij}\phi(e_j)\\
+        e_j' = \sum\limits_{i=1}^{n} c_{ij}e_i \\
+        \phi(e_j') = \phi\left(\sum\limits_{i=1}^{n} c_{ij}e_i\right) = \sum\limits_{i=1}^nc_{ij}\phi(e_i)\\
         (\phi(e_1'), \ldots, \phi(e_n')) = (\phi(e_1),\ldots,\phi(e_n))C = (e_1, \ldots, e_n)AC= (e_1', \ldots, e_n')\underbrace{C^{-1}AC}_{A'}
     \end{gather}
 \end{proof}
