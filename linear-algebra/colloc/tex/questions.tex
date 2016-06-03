@@ -422,10 +422,10 @@ V = \{ \left(a_1+ib_1\right)e_1 + \ldots + \left(a_n+ib_n\right)e_n\ |\ a_k, b_k
 \section{Комплексификация действительного векторного пространства; свзязь между соответствующими размерностями в конечномерном случае.}
 
 \begin{Def}
-Комплексификация пространства $W$ --- это множество $W\times W = W^\mathbb{C} \hm{=} \{\left( u, v\right)\ |\ u,v \in W\}$ с операциями $\left(u_1, v_1\right) + \left(u_2, v_2\right) = \left(u_1+u_2, v_1+v_2\right)$, $\left(a, b\right)\left(u, v\right) \hm{=} \left(au-bv, av+bu\right)$.
+Комплексификация пространства $W$ --- это множество $W\times W = W^\mathbb{C} \hm{=} \{\left( u, v\right)\ |\ u,v \in W\}$ с операциями $\left(u_1, v_1\right) + \left(u_2, v_2\right) = \left(u_1+u_2, v_1+v_2\right)$, $\left(a + ib\right)\left(u, v\right) \hm{=} \left(au-bv, av+bu\right)$, где $a + ib \in \C$.
 \end{Def}
 \begin{Examples}
-$\mathbb{R}^\mathbb{C} = \mathbb{R}$.
+$\mathbb{R}^\mathbb{C} = \mathbb{C}$.
 \end{Examples}
 
 \begin{Statement}
@@ -1216,13 +1216,13 @@ x_n
 \section{Теорема о связи размерностей ядра и образа линейного отображения.}
 
 \begin{Theorem}
-    $\dim \Im \phi = \dim \phi - \dim \Ker \phi$.
+    $\dim \Im \phi = \dim V - \dim \Ker \phi$.
 \end{Theorem}
 
 Существует 2 способа доказательства. Рассмотрим оба.
 
 \begin{proof}[Бескоординатный способ]
-     Пусть $\dim \Ker \phi = k$ и $e_1, \ldots, e_k$ --- базис в $\Ker \phi$. Дополним его до базиса $V$ векторами $e_k, \ldots, e_n$. Тогда:
+     Пусть $\dim \Ker \phi = k$ и $e_1, \ldots, e_k$ --- базис в $\Ker \phi$. Дополним его до базиса $V$ векторами $e_{k+1}, \ldots, e_n$. Тогда:
     \[
         \Im \phi = \langle\phi(e_1), \ldots, \phi(e_k), \ldots, \phi(e_n)\rangle = \langle0, 0, \ldots, 0, \phi(e_{k+1}), \ldots, \phi(e_n)\rangle = \langle\phi(e_{k+1}), \ldots, \phi(e_{n})\rangle
     \]
@@ -1291,8 +1291,8 @@ $$
 \begin{proof}
     \begin{gather}
         (e_1', \ldots, e_n') = (e_1, \ldots, e_n)C  \\
-        e_j' = \sum\limits_{i=1}^{n} c_{ij}e_j \\
-        \phi(e_j') = \phi\left(\sum\limits_{i=1}^{n} c_{ij}e_j\right) = \sum\limits_{i=1}^nc_{ij}\phi(e_j)\\
+        e_j' = \sum\limits_{i=1}^{n} c_{ij}e_i \\
+        \phi(e_j') = \phi\left(\sum\limits_{i=1}^{n} c_{ij}e_i\right) = \sum\limits_{i=1}^nc_{ij}\phi(e_i)\\
         (\phi(e_1'), \ldots, \phi(e_n')) = (\phi(e_1),\ldots,\phi(e_n))C = (e_1, \ldots, e_n)AC= (e_1', \ldots, e_n')\underbrace{C^{-1}AC}_{A'}
     \end{gather}
 \end{proof}
@@ -1428,7 +1428,7 @@ $$
 \begin{itemize}
 \item $[\Rightarrow]$ $\phi(v) = \lambda v \Rightarrow \langle v \rangle = \{kv\ |\ k\in F\}$. Тогда $\phi(kv) = \lambda k v \in \langle v \rangle.$
 
-\item $[\Leftarrow]$ $\phi(V) \in \langle v \rangle \Rightarrow \exists \lambda \in F\colon \phi(v) = \lambda v$.
+\item $[\Leftarrow]$ $\phi(v) \in \langle v \rangle \Rightarrow \exists \lambda \in F\colon \phi(v) = \lambda v$.
 \end{itemize}
 \end{proof}
 
@@ -1919,6 +1919,26 @@ $V_\l(\phi) \subseteq V^\l(\phi) \ \forall \l \in F$.
 
 \section{Характеристический многочлен ограничения линейного оператора на корневое подпространство.}
 
+Пусть $V$ --- конечномерное векторное пространство, $\phi$ --- его линейный оператор.
+
+Положим для краткости, что $\phi - \lambda \id = \phi_{\lambda}$.
+
+\vspace{0.2cm}
+Заметим, что ядра степеней линейного оператора <<вкладываются>> друг в друга --- те векторы, которые стали нулевыми при применении линейного оператора $\phi^k_\lambda$, при применении линейного оператора $\phi_\lambda$ ещё раз так и остаются нулевыми, а также <<добиваются>> (переводятся в нулевые) некоторые ранее ненулевые векторы. Итого, получаем следующее:
+\[
+V_\lambda(\phi) = \ker\phi_\lambda \subset \ker\phi^2_\lambda \subset \ldots \subset \ker\phi^m_\lambda 
+\subset \ldots
+\]
+Причём существует такое $m$, что $\ker\phi^m_\lambda = \ker\phi^{m + 1}_\lambda$, так как $V$ --- конечномерно и размерность его не может увеличиваться бесконечно. Выберем наименьшее такое $m$.
+\begin{Task}
+	Доказать, что для любого $s \geqslant 0$ выполняется равенство $\ker\phi^m_\lambda = \ker\phi^{m + s}_\lambda.$
+\end{Task}
+Заметим также, что $V^{\lambda}(\phi) = \ker\phi^m_\lambda.$ Пусть $k_i = \dim\ker\phi^i_\lambda$.
+Тогда:
+ $$ \dim{V_{\lambda}(\phi)} = k_1 < k_2 < \ldots < k_m =  \dim{V^{\lambda}(\phi)}.
+ $$
+ 
+
 Будем обозначать как $\limref{\phi}{V}$ ограничение линейного оператора на пространство $V$.
  
 \begin{Suggestion}\
@@ -1929,7 +1949,9 @@ $V_\l(\phi) \subseteq V^\l(\phi) \ \forall \l \in F$.
 \end{Suggestion}
 
 \begin{proof}
-	Напомним, что $k_i = \dim \ker \phi^i_\l$, для $i = 1, \ldots, m$. Пусть также $k_0 = 0$.
+	Положим для краткости $\phi_\l = \phi - \l\id$.
+		
+	Пусть $k_i = \dim \ker \phi^i_\l$, для $i = 1, \ldots, m$. Пусть также $k_0 = 0$.
 	
 	Выберем базис $\mathbb{e} = (e_1, \ldots, e_{k_m})$ в $V^{\lambda}(\phi)$ так, чтобы
 	$(e_1, \ldots, e_{k_i})$ также был базисом в  $\ker\phi^{i}_\lambda$. Тогда матрица ограничения $\phi_\l$ на $V^{\l}(\phi)$ в этом базисе имеет блочный вид:
