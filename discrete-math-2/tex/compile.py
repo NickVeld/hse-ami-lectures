@@ -23,7 +23,7 @@ with open('temp.tex', 'w', encoding="utf8") as temp:
     # Collecting text from separate lecture files and compiling each lecture again
     lectures = []
     for elem in os.listdir('./'):
-        if elem.startswith('linear-algebra') and elem.endswith('.tex'):
+        if elem.startswith('discrete-math') and elem.endswith('.tex'):
             lectures.append(elem)
             proc = subprocess.Popen(['pdflatex', '-output-directory', '../', elem])
             proc.communicate()
@@ -56,12 +56,12 @@ for _ in range(2):
 # Saving the file
 os.chdir('..')
 for file in os.listdir('./'):
-    if file == 'linear-algebra_all_lectures.pdf':
+    if file == 'discrete-math_all_lectures.pdf':
         os.remove(os.path.join('./', file))
-os.rename('./tex/temp.pdf', 'linear-algebra_all_lectures.pdf')
+os.rename('./tex/temp.pdf', 'discrete-math_all_lectures.pdf')
 
 for elem in os.listdir('./tex/'):
-    if elem.startswith('linear-algebra') and elem.endswith('.pdf'):
+    if elem.startswith('discrete-math') and elem.endswith('.pdf'):
         if elem in os.listdir('./'):
             os.remove(os.path.join('./', elem))
         os.rename('./tex/'+elem, elem)
