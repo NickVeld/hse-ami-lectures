@@ -61,7 +61,7 @@ for file in os.listdir('./'):
 os.rename('./tex/temp.pdf', 'probability-theory-and-statistics_all_lectures.pdf')
 
 for elem in os.listdir('./tex/'):
-    if elem.startswith('linear-algebra') and elem.endswith('.pdf'):
+    if elem.startswith('probability-theory-and-statistics') and elem.endswith('.pdf'):
         if elem in os.listdir('./'):
             os.remove(os.path.join('./', elem))
         os.rename('./tex/'+elem, elem)

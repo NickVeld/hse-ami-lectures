@@ -61,7 +61,7 @@ for file in os.listdir('./'):
 os.rename('./tex/temp.pdf', 'discrete-math_all_lectures.pdf')
 
 for elem in os.listdir('./tex/'):
-    if elem.startswith('discrete-math') and elem.endswith('.pdf'):
+    if elem.startswith('discrete-math-2') and elem.endswith('.pdf'):
         if elem in os.listdir('./'):
             os.remove(os.path.join('./', elem))
         os.rename('./tex/'+elem, elem)
