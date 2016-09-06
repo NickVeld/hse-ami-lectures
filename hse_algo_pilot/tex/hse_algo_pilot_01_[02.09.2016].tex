@@ -66,7 +66,7 @@ O_{\text{экзамен}} + \text{Б}$.
 
 \begin{Def}
   Базой матроида называют множество всех таких элементов $B \in I$, что {\bf не}
-   существует $B'$, что $B \subset B', |B'|>|B|$ и $B' \in I$. Обозначение $\beta$.
+   существует $B'$, что $B \subset B', |B'|>|B|$ и $B' \in I$. Обозначение $\mathfrak{B}$.
 \end{Def}
 
 \begin{Properties}
@@ -142,8 +142,9 @@ O_{\text{экзамен}} + \text{Б}$.
 \subsection{Приводимость одной базы к другой.}
 
 \begin{Lemma}
-  Пусть $B, D \in \beta$. Тогда существует последовательность $B = B_0, B_1,
-  \ldots, B_k = D$ такие, что $|B_i \triangle B_{i + 1}| = 2.$
+  Пусть $B, D \in \mathfrak{B}$. Тогда существует последовательность $B = B_0, B_1,
+  \ldots, B_k = D$ такие, что $|B_i \triangle B_{i + 1}| = 2,$ где $\triangle$
+  обозначает симметрическую разность множеств.
 \end{Lemma}
 
 \begin{proof}
@@ -168,20 +169,22 @@ O_{\text{экзамен}} + \text{Б}$.
 \text{ --- элементы множества} A$.
 Решаем обычную задачу на максимизацию необходимого множества.
 
-\begin{Theorem}
+\begin{Theorem}[Жадный алгоритм. Теорема Радо-Эдмондса]
   Если отсортировать все элементы $A$ по невозрастанию стоимостей весовой функции:
   $c_1 \geqslant c_2 \geqslant \ldots \geqslant c_n$, то такой алгоритм решает
   исходную задачу о нахождении самого дорогого подмножества:
   
   \rm{
-  \begin{algorithm}[H]
-    $B = \varnothing$
-
-     \For {$c_i$} {
-      \If{$B \cup w_i \in I$} {
-       $B = B \cup w_i$
-      }
-     }
+  \begin{algorithm}
+  \caption{Жадный алгоритм на матроиде.}
+    \begin{algorithmic}
+      \Let{$B$}{$\varnothing$}
+      \For {$c_i$}
+        \If{$B \cup w_i \in I$} 
+          \Let{$B$}{$B \cup w_i$}
+        \EndIf
+      \EndFor
+    \end{algorithmic}
   \end{algorithm}
   }
 \end{Theorem}

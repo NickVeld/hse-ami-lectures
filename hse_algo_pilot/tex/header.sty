@@ -29,7 +29,9 @@
 \usepackage{amsthm}         % Пакет для написания теорем
 \usepackage{amstext}
 \usepackage{array}
-\usepackage[]{algorithm2e}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
 \usepackage{amsfonts}
 \usepackage{icomma}         % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
 \usepackage{enumitem}       % Для выравнивания itemize (\begin{itemize}[align=left])
@@ -55,6 +57,9 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 %\pgfplotsset{compat=1.12}
+
+% Алгоритмы
+\newcommand*\Let[2]{\State #1 $\gets$ #2}
 
 % Изменим формат \section и \subsection:
 \usepackage{titlesec}
@@ -172,7 +177,7 @@
 \newcommand{\eps}{\varepsilon}
 
 \renewcommand{\phi}{\varphi} % плохо, так как есть \phi в англ раскладке.
-\newcommand{\e}{\mathbb{e}}
+\newcommand{\e}{\mathrm{e}}
 \renewcommand{\l}{\lambda}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
