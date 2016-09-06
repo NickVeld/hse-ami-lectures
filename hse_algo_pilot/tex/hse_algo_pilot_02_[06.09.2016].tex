@@ -220,8 +220,8 @@ $A$ припишем самого себя. Посмотрим на все ко�
     \EndIf
     \Let{$A_l$}{$\langle a_0, a_2, \ldots, a_{n - 2}\rangle$}
     \Let{$A_r$}{$\langle a_1, a_3, \ldots, a_{n - 1}\rangle$}
-    \Let{$\hat A_l$}{FFT($A_l$)}
-    \Let{$\hat A_r$}{FFT($A_r$)}
+    \Let{$\hat A_l$}{FFT\_inverted($A_l$)}
+    \Let{$\hat A_r$}{FFT\_inverted($A_r$)}
     \For{$k \gets 0 \textrm{ to } \frac{n}{2} - 1$}
       \Let{$A[k]$}{$\hat A_l[k] + \e^{i\frac{-2\pi k}{n}}\hat A_r[k]$} 
       \Comment{Здесь угол идёт с минусом}
